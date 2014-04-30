@@ -1,0 +1,35 @@
+﻿@model Sistema.Infantil.Models.Usuario
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Login.cshtml"; 
+}
+
+@using(Html.BeginForm()) {
+
+    @Html.ValidationSummary(true)
+    
+    <div class="form-group">
+        
+        <h3 class="form-signin-heading">Credenciamento Figer 360</h3>
+        
+        @Html.TextBoxFor(model => model.NM_LOGIN, new { id = "login", maxlength = 11, size = 20 })
+        @Html.ValidationMessageFor(model => model.NM_LOGIN)
+
+        <span class="control-group"></span>
+
+        @Html.PasswordFor(model => model.NM_SENHA, new { id = "pwd", maxlength = 11, size = 20 })
+        @Html.ValidationMessageFor(model => model.NM_SENHA)
+
+        <span class="control-group"></span>
+        
+        <!--
+        <input name="login" type="text" class="form-control" placeholder="Login"> <span class="control-group"></span>
+
+        <input name="pwd" type="password" class="form-control" placeholder="Senha"> <span class="control-group"></span>
+        -->
+
+        <button class="btn btn-large btn-primary" type="submit">Autenticar</button>
+
+    </div>
+}
